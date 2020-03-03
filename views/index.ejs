@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Bienvenido a este <%= title %></p>
+    <br>
+    <form action="/users" method="POST">
+      <label>¿Cuál es tu Nombre?</label>
+      <input name="name" id="name"></input>
+      <br>
+      <br>
+      <label>¿Cuál es tu Apellido?</label>
+      <input name="lastname" id="lastname"></input>
+      <br>
+      <br>
+      <label>Ingresa Correo Electrónico</label>
+      <input name="email" id="email"></input>
+      <br>
+      <br>
+      <label>Contrase&ntilde;a</label>
+      <input name="password" id="password" type="password"></input>
+      <br>
+      <br>
+      <button type="submit">Crear usuario</button>
+    </form>
+    <!-- Tabla de registro de usuarios -->
+    <h1>Lista de Registro de Usuarios</h1>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+      </tr>      
+      <% for(let i = 0; i < list.length; i++) { %>
+        <tr>
+          <td><%= list[i].name %></td>
+          <td><%= list[i].lastname %></td>
+          <td><%= list[i].email %></td>
+        </tr>
+      <%}%>
+    </table>
+  </body>
+</html>
