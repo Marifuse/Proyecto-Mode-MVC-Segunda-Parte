@@ -2,46 +2,56 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet"> 
     <link rel='stylesheet' href='/stylesheets/style.css'/>
   </head>
   <body>
+    <!-- Título de la pág -->
     <h1><%= title %></h1>
     <p>Bienvenido a este <%= title %></p>
     <br>
+    <!-- Formulario de registro -->
     <form action="/users" method="POST">
       <label>¿Cuál es tu Nombre?</label>
+      <br>
       <input name="name" id="name"></input>
       <br>
       <br>
       <label>¿Cuál es tu Apellido?</label>
+      <br>
       <input name="lastname" id="lastname"></input>
       <br>
       <br>
       <label>Ingresa Correo Electrónico</label>
+      <br>
       <input name="email" id="email"></input>
       <br>
       <br>
       <label>Contrase&ntilde;a</label>
+      <br>
       <input name="password" id="password" type="password"></input>
       <br>
       <br>
       <button type="submit">Crear usuario</button>
     </form>
     <!-- Tabla de registro de usuarios -->
-    <h1>Lista de Registro de Usuarios</h1>
-    <table>
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Email</th>
-      </tr>      
-      <% for(let i = 0; i < list.length; i++) { %>
+    <section>
+      <h1>Lista de Registro de Usuarios</h1>
+      <table border="1" style="margin: 0 auto;">
         <tr>
-          <td><%= list[i].name %></td>
-          <td><%= list[i].lastname %></td>
-          <td><%= list[i].email %></td>
-        </tr>
-      <%}%>
-    </table>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+        </tr>      
+        <% for(let i = 0; i < list.length; i++) { %>
+          <tr>
+            <td><%= list[i].name.replace(/[Ñ]/gi, 'NN') %></td>
+            <td><%= list[i].lastname.replace(/[Ñ]/gi, 'NN') %></td>
+            <td><%= list[i].email %></td>
+          </tr>
+        <%}%>
+      </table>
+    </section>
+    
   </body>
 </html>
